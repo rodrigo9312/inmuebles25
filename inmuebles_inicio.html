@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    integriry="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G60c7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <title>INDICE DE HERRAMIENTAS</title>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+     }
+     body{
+        /* background:#30363d;*/
+         background:#FFFAFA;
+     }
+     .opciones{
+         color:black;
+         text-decoration:none;
+         margin-left:30px;
+         font-weight:900;
+         padding:10px;
+         width:fit-content;
+         transition:0.5s;
+     }
+     .opciones:hover{
+         margin-left:50px;
+         border-left:12px solid silver;
+         font-size:18px;
+     }
+.cabezera {
+    z-index:1;
+    width:100vw;
+  display: flex;
+  justify-content: right;
+  align-items:center;
+  padding: 10px;
+/*background: linear-gradient(to right, #00bcd4 , #00e676, #9c27b0 70%);*/
+background:#07252d;
+position: sticky;
+top:0px;
+  overflow: hidden;
+  margin-top:-50px;
+  transition:0.5s;
+}
+.cabezera::before {
+    display:none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  background: radial-gradient(circle, #00bcd4 20%, #00e676 40%, #9c27b0 60%, transparent 80%);
+  animation: waveAnimation 8s infinite linear;
+  z-index:1;
+}
+.wave{
+    overflow:hidden;
+    width:100vw;
+}
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+
+.cabezera span {
+  color: white;
+  z-index:2;
+}
+
+.cabezera a {
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+  margin-right: 15px;
+  z-index:2;
+}
+
+.cuerpo {
+  padding: 10px;
+  margin-left:-900%;
+  transition:0.9s;
+}
+.cuerpo h1{
+    max-width:70vw;
+    background:transparent;
+    backdrop-filter: blur(5px);
+}
+.enlaces{
+    display:flex;
+    flex-direction:column;
+}
+.iniciar{
+    z-index:10;
+    align-items:center;
+    display:flex;
+    justify-content:space-around;
+    padding:10px;
+    background:#ffffff99;
+    border:2px solid grey;
+    color:grey;
+    border-radius:10px;
+    width:250px;
+    text-align:center;
+    position:absolute;
+    top:80%;
+    right:10%;
+    opacity: 0;
+    animation: moveUp 4s forwards, fadeOut 6s forwards;   
+     transition: transform 0.5s, opacity 0.5s;
+}
+.iniciar i{
+    font-size:20px;
+}
+@keyframes moveUp {
+  0% {
+    top: 90%;
+  }
+  100% {
+    top: 80%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.terminar{
+    align-items:center;
+    display:flex;
+    justify-content:space-around;
+
+    padding:10px;
+    background:white;
+    border:2px solid grey;
+    color:grey;
+    border-radius:10px;
+    width:250px;
+    text-align:center;
+    position:absolute;
+    top:80%;
+    right:10%;
+    opacity: 0;
+    animation: moveUx 4s forwards, fadeOux 6s forwards;   
+     transition: transform 0.5s, opacity 0.5s;
+}
+@keyframes moveUx {
+  0% {
+    top: 80%;
+  }
+  100% {
+    top: 120%;
+  }
+}
+
+@keyframes fadeOux {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+    .ondasgeneral{
+        bottom:0;
+        transition:0.5s;
+    }
+
+    .ondas1{
+        overflow:hidden;
+        width:120vw;
+        position:absolute;
+        z-index:-1;
+        animation: moveLayer linear infinite;
+        animation-duration: 35s;
+        margin-left:-90px;
+        right:20px;
+        }
+        
+
+    .ondas2{
+        right:50px;
+        overflow:hidden;
+        width:120vw;
+        position:absolute;
+        z-index:-2;
+        animation: moveLayer linear infinite;
+        animation-duration: 13s;
+        border-left:none;
+        margin-left:-30px;
+        }
+    .ondas3{
+        right:-80px;
+        overflow:hidden;
+        width:120vw;
+        border-left:none;
+        position:absolute;
+        z-index:-3;
+        animation: moveLayer linear infinite;
+        animation-duration: 7s;
+        margin-left:-25px;
+        opacity:0.5;
+        }
+
+    @keyframes moveLayer {
+      0% {
+        right:-80px;
+        }
+      50% {
+        right:0px;
+        }
+      100% {
+        right:-80px;
+        }
+    }
+    .tools{
+        padding:10px;
+        position:absolute;
+        bottom:0;
+        width:100%;
+        display:flex;
+        justify-content:space-around;
+        background:black;
+        margin-bottom:-50px;
+        transition:0.5s;
+    }
+    .botones{
+        width:100%;
+        background:black;
+        color:white;
+        text-align:center;
+        border-radius:5px;
+        display:flex;
+        flex-direction:column;
+    }
+    .botones span{
+        color:white;
+        text-shadow: 0 0 10px #cbd1d3, 0 0 20px #cbd1d3, 0 0 40px #cbd1d3;
+        text-align:center;
+        font-size:10px;
+    }
+    .botones a{
+        text-align:center;
+        color:white;
+        text-shadow: 0 0 10px #cbd1d3, 0 0 20px #cbd1d3, 0 0 40px #cbd1d3;
+        
+    }
+    .ondasDos{
+        overflow:hidden;
+        max-height:120px;
+        min-width:2900vw;
+        display:flex;
+        animation: moveLayerDos linear infinite;
+        animation-duration: 30s;
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:-1;
+    }
+    .ondasDos svg{
+
+    }
+        @keyframes moveLayerDos {
+      0% {
+        left:0%;
+        }
+      100% {
+        left:-90%;
+        }
+    }
+    .limite{
+        width:100vw;
+        overflow:hidden;
+    }
+    .opciones:hover + .item {
+      opacity:1;
+      right:20%;
+    }
+    .item{
+        transition:0.5s;
+        opacity:0;
+        position:absolute;
+        right:-20%;
+        font-size:280px;
+    }
+    .fanthom{
+        transition:0.5s;
+        opacity:0;
+        position:absolute;
+        right:-20%;
+        font-size:380px;
+
+    }
+/*     .esfera {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      border-radius: 50%;
+      box-shadow: inset 10px 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .esfera::before,
+    .esfera::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      background-color: #2980b9;
+      border-radius: 50%;
+      box-shadow: inset 10px 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .esfera::before {
+      bottom: 100%;
+    }
+
+    .esfera::after {
+      top: 100%;
+    }*/
+        .imagenes{
+        width:100%;
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 1.3rem;        
+        justify-content:space-around;
+        margin-top:5%;
+    }
+    .imagenes img{
+        border-radius:15px;
+    }
+    .accion{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+    }
+    .accion span{
+        width:100%;
+        min-width:200px;
+        margin-top:20px;
+        text-align:center;
+        padding: 10px;
+        background: white;
+        border: 2px solid grey;
+        color: grey;
+        border-radius: 10px;
+        font-weight:900;
+        transition:0.5s;
+    }
+    .accion span:hover{
+        background: grey;
+        border: 2px solid white;
+        color: white;
+    }
+    .fondo_dos{
+        display:none;
+        position:absolute;
+        z-index:-1;
+        /*margin-left:10vw;
+        width:80vw;
+        margin-top:10vh;
+        height:80vh;*/
+        width:100vw;
+        height:100vh;
+        top:0px;
+        left:0px;
+        filter: blur(5px); /* Agregando el filtro de desenfoque */
+        
+    }
+
+.envio {
+    margin-top: 50px;
+    background: thistle;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    width: 250px;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0.25rem 0.5rem 0.35rem 0 #1f1b1bd2;
+    color: #585252;
+    text-decoration: none;
+    margin: 5%;
+}
+.clip{
+    margin-top: -15px;
+    background: white;
+    margin-left: 50px;
+    max-width:55%;
+    color:grey;
+    display:flex;
+    padding:8px;
+    border-radius: 10px;
+    border-bottom:2px solid #07252d;
+    border-right:2px solid #07252d;
+}
+.clip div{
+    align-items:left;
+    margin-left:15px;
+}
+.clip i {
+    font-size: 45px;
+}
+.logo{
+    position:absolute;
+    top:5px;
+    left:10px;
+}
+    #compras:hover + .fondo_dos {
+    top: 30px;
+    }
+    .capa_uno_inside{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1.3rem; 
+    padding:15px;
+    }
+.capa_uno{
+
+    overflow:scroll;
+    transition:0.5s;
+    width:100vw;
+    height:92vh;
+    position:fixed;
+    top:8vh;
+    left:100%;
+    z-index:2;
+    background:transparent;
+    backdrop-filter: blur(15px);
+/*    background:white;*/
+
+}
+.enlace{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    background:#07252d;
+    color:white;
+    border-radius:5px;
+    padding:5px;
+    text-decoration:none;
+    
+}
+.especies{
+    position: relative;
+    color:grey;
+    padding:10px;
+    margin:10px;
+    border-radius:10px;
+    border-right:2px solid #07252d;
+    border-bottom:2px solid #07252d;
+    background:white;
+    overflow:hidden;
+}
+.especies h5{
+    font-weight:400;
+    margin-top:15px;
+}
+.especies div{
+    position: relative;
+}
+.especies i{
+    color:silver;
+    filter: blur(2px); /* Establecer el blur inicial a 0px */
+    font-size:90px;
+    position:absolute;
+    bottom:0px;
+    right:10px;
+}
+        .cerrar{
+            position:sticky;
+            left:95%;
+            top:10px;
+            background:red;
+            width:40px;
+            height:40px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            color:white;
+            border-radius:10px;
+            z-index:3;
+        }
+        .titulo{
+            color:grey;
+            display:flex;
+            align-items:center;
+            position: sticky;
+            top: 0px;
+            width: 100%;
+    background: linear-gradient(to right, #07252d, #00e676, #FFFFFF 70%);
+            color: white;
+            z-index:3;
+        }
+        .titulo i{
+            font-size:45px;
+            margin-right:15px;
+        }
+        .especies_superior{
+    position relative;
+            display:flex;
+            top:0px;
+            left:0px;
+        }
+        .especies_superior img{
+            width:200px;
+            position:relative;
+            left:320px;
+            top:100px;
+            border-radius:10px;
+        }
+        .splash_logo{
+            z-index:-1;
+            position:absolute;
+            left:70vw;
+            top:60vh;
+             filter: blur(0px); /* Establecer el blur inicial a 0px */
+            animation: blurAnimation 5s forwards;
+        }
+        
+        
+        @keyframes blurAnimation {
+            0%   { filter: blur(0px);}
+            100% { filter: blur(5px);}
+        }
+        .vermas{
+            transition:0.5s;
+            background:#07252d;
+            text-decoration:none;
+            color:white;
+            font-weight:500;
+            font-size:13px;
+            position:absolute;
+            bottom:0;
+            right:0;
+            border-radius:10px 0 0 0;
+            padding:5px;
+        }
+        .vermas:hover{
+            background:white;
+            color:#07252d;
+            font-weight:700;
+        }
+        .inventario{
+            display:none;
+            transition:1s;
+            margin-top:150px;
+            color:grey;
+            z-index:3;
+            margin-left:-300%;
+            width:100vw;
+            overflow:scroll;
+        }
+        .inventario h1{
+            
+            position:absolute;
+            margin-top:-50px;
+            width:100%;
+            text-align:center;
+        }
+        .elemento_inv{
+            position:relative;
+            border-radius:10px;
+            border:2px solid black;
+            padding:15px;
+            /*min-width:95vw;*/
+            margin-left:2.5vw;
+            margin-bottom:25px;
+        }
+        .elemento_inv h6 i{
+            font-size:16px;
+        }
+        .elemento_inv img{
+            width:100%;
+            border-radius:15px;
+        }
+        .label_venta{
+            text-align:center;
+            font-weight:900;
+            width:120px;
+            position:absolute;
+            top:0px;
+            left:0px;
+            color:white;
+            background:red;
+            padding:5px;
+            border-radius:0 0 5px;
+        }
+        .label_renta{
+            text-align:center;
+            font-weight:900;
+            width:120px;
+            position:absolute;
+            top:0px;
+            left:0px;
+            color:white;
+            background:green;
+            padding:5px;
+            border-radius:0 0 5px;
+        }
+        .buscador{
+            display:flex;
+            border:2px solid silver;
+            padding:5px;
+            border-radius:10px;
+            margin-bottom:10px;
+            width:95vw;
+        }
+        .buscador button i{
+            font-weight:900;
+            font-size:20px;
+        }
+        .buscador button{
+            min-width:80px;
+            padding:3px;
+            border-radius:5px;
+            font-weight:600;
+            background:#07252d;
+            color:white;
+            display:flex;
+            align-items:end;
+            
+        }
+        .buscador > i {
+            background:none;
+            border:2px solid silver;
+            border-radius:5px;
+            padding:5px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:grey;
+        }
+        .buscador_input{
+            background:none;
+            border:none;
+            border-bottom:2px solid silver;
+            padding:5px;
+            width:90%;
+        }
+        .mas_buscado{
+            display:none;
+            flex-direction:column;
+            position:absolute;
+            top:80px;
+            width:90%;
+            background:white;
+            border:2px solid grey;
+            border-radius:10px;
+            padding:10px;
+            
+        }
+        .opc_busqueda{
+            display:flex;
+            flex-direction:column;
+            padding:10px;
+        }
+        .opc_busqueda span{
+            color:grey;
+            display:flex;
+            padding:0 5px 0 0;
+            border:2px solid grey;
+            border-radius:5px;
+            margin-bottom:8px;
+            align-items:center;
+            font-weight:900;
+            border-right:10px solid green;
+        }
+        .opc_busqueda span img{
+           min-width:70px;
+           width:70px;
+           margin-right:10px;
+        }
+        .caja_buscado{
+            display:flex;
+            justify-content:space-between;
+        }
+        .medallas{
+            display:flex;
+            align-items:center;
+            color:grey
+        }
+        .verificacion{
+            padding:8px;
+            text-align:center;
+            align-items:center;
+        }
+        .verificacion span{
+            font-size:18px;
+            padding:3px;
+            color:darkblue;
+            text-decoration:none;
+        }
+        .separador{
+            border:1px solid grey;
+            height:80%;
+            width:1px;
+            color:white;
+            
+        }
+        .cabecera_abajo{
+            width:100%;
+                height: 4px;
+    background: linear-gradient(transparent, #33B3AE 40%);
+    position:absolute;
+    bottom:0px;
+        }
+        
+
+
+    @media only screen and (max-width: 960px){
+    .opciones:hover + .item {
+      opacity:1;
+      right:10%;
+    }
+    .accion{
+        width: fit-content;
+    }
+    .clip{
+        max-width:100%;
+        width:95vw;
+        margin-top: 15px;
+        background: transparent;
+        margin-left: 0px;
+
+    }
+            .splash_logo{
+            position:absolute;
+            left:35vw;
+            top:50vh;
+                
+            }
+
+    .item{
+        transition:0.5s;
+        opacity:0;
+        position:absolute;
+        right:-20%;
+        font-size:130px;
+    }
+    .imagenes img{
+        display:none;
+    }
+    .imagenes{
+        display:flex;
+        flex-direction:column;
+    }
+    .cabecera{
+        height:8vh;
+    }
+    .especies_superior {
+        display:block;
+    }
+    .especies_superior img{
+        display:none;
+    }
+    .capa_uno_inside{
+    display:flex;
+    flex-direction:column;
+    }
+    .inventario{
+        flex-direction:column;
+}
+</style>
+</head>
+<body>
+    <div class="cabezera" id="cabezera">
+        <img class="logo" src="prueba/home_logo.png" width="85px">
+        <span>Menu</span>
+        <a href="" class="material-symbols-outlined">menu</a>
+        <div class="cabecera_abajo"></div>
+    </div>
+    <img class="splash_logo" src="prueba/home_logo.png" width="285px">
+<!--<div class="limite">
+        <div class="ondasDos">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20" preserveAspectRatio="none" fill="white" class="">
+            <path d="M0 10 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 " stroke="silver" stroke-width="0.2" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20" preserveAspectRatio="none" fill="white" class="">
+            <path d="M0 10 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 q5 -10 10 0 q5 10 10 0 " stroke="silver" stroke-width="0.2" />
+        </svg>
+        </div>
+    </div> -->
+
+
+    <div class="cuerpo" id="cuerpo">
+        <div class="buscador">
+            <input class="buscador_input" placeholder="Escribe estado, municipio, o colonia">
+            <button>Buscar:
+                <i class="la la-search"></i>
+            </button>
+            <i class="la la-chevron-down" id="abrir_mas_buscado"></i>
+        </div>
+        <div class="mas_buscado" id="mas_buscado">
+            <div class="caja_buscado"><h2>Busqueda rapida:</h2>
+                <span id="cerrar_mas_b">X</span>
+            </div>
+            <div class="opc_busqueda">
+                <span>
+                <img src="prueba/precios.jpeg">
+                Ver inventario por precio (menor a mayor)</span>
+                <span>
+                <img src="prueba/inmueble_cholula.jpg">
+                Ciudad de Cholula</span>
+                <span>
+                <img src="prueba/con_jardin.jpeg">
+                Solo casas con jardin</span>
+                <span>
+                <img src="prueba/renta_mascota.jpeg">
+                Renta con mascotas</span>
+            </div>
+        </div>
+        <div class="imagenes">
+            <div class="accion" id="vendes">
+                <img src="prueba/vendes.jpg" width="270px">
+                <div class="clip">
+                    <i class="la la-money"></i>
+                    <div>
+                    <h2>Vendes</h2>
+                    <h6>Te conseguimos buenos rendimientos</h6>
+                    </div>
+                </div>
+
+            </div>
+<!--            <div class="accion" id="compras">
+                <img src="prueba/wallpaper.jpg" class="fondo_dos" id="fondo_dos">
+                <img src="prueba/compras.jpeg" width="300px">
+                <span>Compras</span>
+            </div> -->
+            <div class="accion" id="renta">
+                <img src="prueba/renta.jpg" width="270px">
+                <div class="clip">
+                    <i class="la la-handshake"></i>
+                    <div>
+                    <h2>Rentas</h2>
+                    <h6>Busca o publica las opciones.</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="accion" id="regular">
+                <img src="prueba/regular.jpg" width="270px">
+                <div class="clip">
+                    <i class="la la-landmark"></i>
+                    <div>
+                    <h2>Regulariza</h2>
+                    <h6>No te lleves sorpresas legales.</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="accion" id="compras">
+                <img src="prueba/compras.jpeg" width="270px">
+                <div class="clip">
+                    <i class="la la-home"></i>
+                    <div>
+                    <h2>Compras</h2>
+                    <h6>Hacemos rendir tú dinero.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="inventario" id="inventario">
+        <h1>Inventario rápido.</h1><br>
+        <div class="elemento_inv">
+            <span class="label_venta">En venta</span>
+            <img src="prueba/inventario.jpeg">
+            <div class="medallas">
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Person</span><h6>Perfil verificado</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Book</span><h6>Escrituras Revisadas</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Analytics</span>
+                    <h6>Impuestos al corriente</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Map</span><h6>Planos de instalación</h6>
+                </div>
+            </div>
+            <br>
+            <span><b>$ 2,120,000.00 M.N.</b></span>
+            <h6>Dos millones ciento veinte mil pesos cero centavos moneda nacional mexicana</h6>
+            <hr>
+            <h6><i class="la la-landmark"></i><b>Estado:</b> Puebla</h6>
+            <h6><i class="la la-map"></i><b>Ciudad:</b> Puebla</h6>
+            <h6><i class="la la-bathtub"></i><b>Baños:</b> 2.5 baños</h6>
+            <h6><i class="la la-building"></i><b>Habitaciones:</b> 3 habitaciones</h6>
+            <h6><i class="la la-car"></i><b>Cochera:</b> 2 vehiculos</h6>
+            <a href="#" class="vermas">Ver más</a>
+
+        </div>
+        <div class="elemento_inv">
+            <span class="label_renta">En renta</span>
+            <img src="prueba/inventariodos.jpg">
+            <div class="medallas">
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Person</span><h6>Perfil verificado</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Chair</span><h6>Muebles incluidos</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Analytics</span>
+                    <h6>Impuestos al corriente</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Pets</span><h6>Mascotas permitidas</h6>
+                </div>
+            </div>            
+            <br>
+            <span>$ 12,120.00 M.N.</span>
+            <h6>doce mil ciento veinte pesos cero centavos moneda nacional mexicana mensuales</h6>
+            <hr>
+            <h6><i class="la la-landmark"></i><b>Estado:</b> Puebla</h6>
+            <h6><i class="la la-map"></i><b>Ciudad:</b> Puebla</h6>
+            <h6><i class="la la-bathtub"></i><b>Baños:</b> 2.5 baños</h6>
+            <h6><i class="la la-building"></i><b>Habitaciones:</b> 3 habitaciones</h6>
+            <h6><i class="la la-car"></i><b>Cochera:</b> 2 vehiculos</h6>
+            <a href="#" class="vermas">Ver más</a>
+
+        </div>
+        <div class="elemento_inv">
+            <span class="label_venta">En venta</span>
+            <img src="prueba/invetnariotres.jpg">
+                        <div class="medallas">
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Person</span><h6>Perfil verificado</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Book</span><h6>Escrituras Revisadas</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Analytics</span>
+                    <h6>Impuestos al corriente</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Map</span><h6>Planos de instalación</h6>
+                </div>
+            </div>
+            <br>
+            <span>$ 1,920,000.00 M.N.</span>
+            <h6>Un millon novecientos veinte mil pesos cero centavos moneda nacional mexicana</h6>
+            <hr>
+            <h6><i class="la la-landmark"></i><b>Estado:</b> Puebla</h6>
+            <h6><i class="la la-map"></i><b>Ciudad:</b> Puebla</h6>
+            <h6><i class="la la-bathtub"></i><b>Baños:</b> 2.5 baños</h6>
+            <h6><i class="la la-building"></i><b>Habitaciones:</b> 3 habitaciones</h6>
+            <h6><i class="la la-car"></i><b>Cochera:</b> 2 vehiculos</h6>
+            <a href="#" class="vermas">Ver más</a>
+
+        </div>
+        <div class="elemento_inv">
+            <span class="label_venta">En venta</span>
+            <img src="prueba/inventario.jpeg">
+            <div class="medallas">
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Person</span><h6>Perfil verificado</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Book</span><h6>Escrituras Revisadas</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Analytics</span>
+                    <h6>Impuestos al corriente</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Map</span><h6>Planos de instalación</h6>
+                </div>
+            </div>
+            <br>
+            <span>$ 2,120,000.00 M.N.</span>
+            <h6>Dos millones ciento veinte mil pesos cero centavos moneda nacional mexicana</h6>
+            <hr>
+            <h6><i class="la la-landmark"></i><b>Estado:</b> Puebla</h6>
+            <h6><i class="la la-map"></i><b>Ciudad:</b> Puebla</h6>
+            <h6><i class="la la-bathtub"></i><b>Baños:</b> 2.5 baños</h6>
+            <h6><i class="la la-building"></i><b>Habitaciones:</b> 3 habitaciones</h6>
+            <h6><i class="la la-car"></i><b>Cochera:</b> 2 vehiculos</h6>
+            <a href="#" class="vermas">Ver más</a>
+
+        </div>        
+        <div class="elemento_inv">
+            <span class="label_venta">En venta</span>
+            <img src="prueba/invetnariotres.jpg">
+                        <div class="medallas">
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Person</span><h6>Perfil verificado</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Book</span><h6>Escrituras Revisadas</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Analytics</span>
+                    <h6>Impuestos al corriente</h6>
+                </div>
+                <div class="separador">.</div>
+                <div class="verificacion">
+                    <span href="" class="material-symbols-outlined">Map</span><h6>Planos de instalación</h6>
+                </div>
+            </div>
+            <br>
+            <span>$ 1,920,000.00 M.N.</span>
+            <h6>Un millon novecientos veinte mil pesos cero centavos moneda nacional mexicana</h6>
+            <hr>
+            <h6><i class="la la-landmark"></i><b>Estado:</b> Puebla</h6>
+            <h6><i class="la la-map"></i><b>Ciudad:</b> Puebla</h6>
+            <h6><i class="la la-bathtub"></i><b>Baños:</b> 2.5 baños</h6>
+            <h6><i class="la la-building"></i><b>Habitaciones:</b> 3 habitaciones</h6>
+            <h6><i class="la la-car"></i><b>Cochera:</b> 2 vehiculos</h6>
+            <a href="#" class="vermas">Ver más</a>
+
+        </div>        
+    </div>
+    <div>
+    <div class="capa_uno" id="capa_uno">
+        <div class="titulo">
+        <div class="cerrar" id="cerrar_uno" data-target="capa_uno">X</div>
+            <i class="la la-home"></i>
+            <h2>COMPRAS</h2>
+        </div>
+        <br>
+        <div class="capa_uno_inside">
+        <div class="especies_superior">    
+        <div class="especies">
+            <h3>NUESTRO INVENTARIO.</h3>
+            <h5>Tenemos un amplio repertorio de inmuebles para que puedas elegir el que más se acomode a tu estilo.</h5>
+            <br>
+            <div>
+                <span>Tenemos 12 inmuebles disponibles.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-landmark"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <!--<img src="prueba/compras.jpeg"> -->
+        </div>
+        <div class="especies_superior">    
+        <div class="especies">
+            <h3>REMATE JUDICIAL.</h3>
+            <h5>Aprovecha las oportunidades en el sistema legal.</h5>
+            <br>
+            <div>
+                <span>Tenemos 10 inmuebles disponibles.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <!--<img src="prueba/vendes.jpg"> -->
+        </div>
+        <div class="especies">
+            <h3>REMATE BANCARIO.</h3>
+            <h5>Esta es la oportunidad que estabas esperando.</h5>
+            <br>
+            <div>
+                <span>Tenemos 7 inmuebles disponibles.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>BUSCAR CRÉDITO HIPOTECARIO.</h3>
+            <h5>Deja que nosotros busquemos las mejores opciones para tí.</h5>
+            <br>
+            <div>
+                <span>Tenemos varias opciones disponibles.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-money"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>ENCARGAR BUSQUEDA.</h3>
+            <h5>Si quieres algo muy especifico y no esta listado, pidelo a la carta.</h5>
+            <br>
+            <div>
+                <span>Tenemos 7 inmuebles disponibles.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-search"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        </div>
+    </div>
+    <div class="capa_uno" id="capa_dos">
+        <div class="titulo">
+        <div class="cerrar" id="cerrar_dos" data-target="capa_dos">X</div>
+            <i class="la la-landmark"></i>
+            <h2>REGULARIZA</h2>
+        </div>
+        <br>
+        <div class="capa_uno_inside">
+        <div class="especies">
+            <h3>INMUEBLE INTESTADOS.</h3>
+            <h5>No puedes vender, rentar ni hacer ningun trámite con tu inmueble intestado, pide cotización.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>SIN ESCRITURAS.</h3>
+            <h5>Solo te firmaron un contrato privado de compraventa pero nunca hicieron el trámite frente a notario, podemos apoyarte.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>POR PRESCRIPCIÓN.</h3>
+            <h5>La propiedad tiene años en tu familia y no saben si siquiera este en el registro público, te ayudamos a regularizarla.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>BIENES EJIDALES.</h3>
+            <h5>Un simple contrato no es suficiente para adquirir bienes ejidales.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        </div>
+        <br>
+    </div>
+    <div class="capa_uno" id="capa_tres">
+        <div class="titulo">
+            <div class="cerrar" id="cerrar_tres" data-target="capa_tres">X</div>
+            <i class="la la-handshake"></i>
+            <h2>RENTAS</h2>
+        </div>
+        <br>
+        <div class="capa_uno_inside">
+        <div class="especies">
+            <h3>PUBLICA EL INMUEBLE QUE OFRECES.</h3>
+            <h5>Agrega al catálogo el inmueble que ofreces y las condicionesdel contrato.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>RENTA PARA VIVIENDA.</h3>
+            <h5>Revisa nuestras opciones.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>RENTA COMERCIAL.</h3>
+            <h5>Locales, bodegas, oficinas, etc. lo tenemos todo.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>ASISTENCIA LEGAL.</h3>
+            <h5>Ya sea que seas propietario o arrendatario nosotros podemos apoyarte para que tengas la mejor experiencia en esta operación.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>ASISTENCIA CONTABLE.</h3>
+            <h5>Tienes obligaciones fiscales cuando rentas un inmueble, conoce cuales son y como te podemos ayudar a cumplirlas.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        </div>
+        <br>
+    </div>
+    <div class="capa_uno" id="capa_cuatro">
+        <div class="titulo">
+        <div class="cerrar" id="cerrar_cuatro" data-target="capa_cuatro">X</div>
+            <i class="la la-money"></i>
+            <h2>VENDES</h2>
+        </div>
+        <br>
+        <div class="capa_uno_inside">
+        <div class="especies">
+            <h3>AGREGALO A NUESTRO CATÁLOGO</h3>
+            <h5>Al agregar tu inmueble a nuestro catálogo lo promocionaremos hasta encontrar el comprador indicado para ti.</h5>
+            <br>
+            <div>
+                <span>Conoce nuestras políticas de venta.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+        <div class="especies">
+            <h3>VENTA EXPRESS.</h3>
+            <h5>Te urge dinero, cotiza cuanto podrias recibir de forma inmediata.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+            </div>
+                <i class="la la-file"></i>
+                <a href="#" class="vermas">Ver más</a>
+        </div>
+<!--        <div class="especies">
+            <h3>POR PRESCRIPCIÓN.</h3>
+            <h5>La propiedad tiene años en tu familia y no saben si siquiera este en el registro público, te ayudamos a regularizarla.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+                <a href="#" class="enlace">Ver más</a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="especies">
+            <h3>BIENES EJIDALES.</h3>
+            <h5>Un simple contrato no es suficiente para adquirir bienes ejidales.</h5>
+            <br>
+            <div>
+                <span>Tenemos ayuda para ti.</span>
+                <br>
+                <br>
+                <a href="#" class="enlace">Ver más</a>
+            </div>
+        </div> -->
+        </div> 
+        <br>
+    </div>
+    <script>
+var botonesCerrar = document.querySelectorAll('.cerrar');
+
+botonesCerrar.forEach(function(botonCerrar) {
+    botonCerrar.addEventListener('click', function() {
+        var targetId = this.getAttribute('data-target');
+        var targetElement = document.getElementById(targetId);
+        targetElement.style.left = '100%';
+    });
+});
+
+    </script>
+    <script>
+var amb = document.getElementById('abrir_mas_buscado');
+var mab = document.getElementById('mas_buscado');
+amb.addEventListener('click', function() {
+    mab.style.display = 'flex';
+});
+    </script>
+    <script>
+var cmb = document.getElementById('cerrar_mas_b');
+cmb.addEventListener('click', function() {
+    mab.style.display = 'none';
+});
+    </script>
+    <script>
+var compras = document.getElementById('compras');
+var capaUno = document.getElementById('capa_uno');
+compras.addEventListener('click', function() {
+    capaUno.style.left = '0%';
+});
+    </script>
+    <script>
+var regular = document.getElementById('regular');
+var capaDos = document.getElementById('capa_dos');
+regular.addEventListener('click', function() {
+    capaDos.style.left = '0%';
+});
+    </script>
+    <script>
+var renta = document.getElementById('renta');
+var capaTres = document.getElementById('capa_tres');
+renta.addEventListener('click', function() {
+    capaTres.style.left = '0%';
+});
+    </script>
+    <script>
+var vendes = document.getElementById('vendes');
+var capaCuatro = document.getElementById('capa_cuatro');
+vendes.addEventListener('click', function() {
+    capaCuatro.style.left = '0%';
+});
+    </script>
+    <div class="iniciar" id="iniciar">
+        Explorar
+        <i class="la la-home"></i>
+    </div>
+    <!--
+    <div class="esfera"></div> -->
+    </div>
+    <!--<div class="tools" id="tools">
+    </div> -->
+<script>
+  document.getElementById('iniciar').addEventListener('click', function() {
+    // Mover hacia abajo 30px y cambiar opacidad a 0
+    this.classList.remove('iniciar');
+    this.classList.add('terminar');
+
+    // Ocultar el objeto después de la animación
+    setTimeout(() => {
+      this.style.display = 'none';
+      
+      // Mostrar el siguiente objeto después de un delay
+      setTimeout(() => {
+        //document.getElementById('tools').style.marginBottom = '0';
+        document.getElementById('cabezera').style.marginTop = '0';
+        document.getElementById('cuerpo').style.marginLeft = '0';
+        document.getElementById('inventario').style.marginLeft = '0';
+        document.getElementById('inventario').style.display = 'flex';
+        var ondasElements = document.querySelectorAll(".ondasgeneral");
+
+        ondasElements.forEach(function(element) {
+        element.style.bottom = '55px';
+        element.style.height = '155px';
+            });
+      }, 200); // Delay de 0.5 segundos
+    }, 300); // Delay de 0.5 segundos
+  });
+</script>    
+</body>
+</HTML>
